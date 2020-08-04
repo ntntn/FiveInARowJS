@@ -13,7 +13,7 @@ class Player {
 		let arr = board.getIntBoard(player == board.humanVal);
 		board.move(player, x, y);
 
-		for (var i = 0; i < 8; i++) {
+		for (let i = 0; i < 8; i++) {
 			let x1 = x + this.directions[0][i];
 			let y1 = y + this.directions[1][i];
 
@@ -34,7 +34,7 @@ class Player {
     getValue(intBoard, player, x, y) {
         let value = 0;
         
-		for (var i = 0; i < 8; i += 2) {
+		for (let i = 0; i < 8; i += 2) {
 			let x1 = x + this.directions[0][i];
 			let y1 = y + this.directions[1][i];
 			let rowLength1 = this.getRow(intBoard, player, x1, y1, i).length;
@@ -43,8 +43,8 @@ class Player {
 			y1 = y + this.directions[1][i + 1];
 			let rowLength2 = this.getRow(intBoard, player, x1, y1, i + 1).length;
 
-			if (rowLength1 + rowLength2 != 0)
-				value += Math.pow(10, rowLength1 + rowLength2);
+            if (rowLength1 + rowLength2 != 0)
+                value += Math.pow(10, rowLength1 + rowLength2);
 		}
 
 		return value;

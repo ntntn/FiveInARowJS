@@ -5,7 +5,6 @@ import Human from './Human';
 import Cell from './Cell';
 import AI from './AI';
 
-
 class GameScene extends Phaser.Scene {
     constructor() {
         super('GameScene');
@@ -35,16 +34,16 @@ class GameScene extends Phaser.Scene {
     }
 
     createBoard(board) {
-        for (var i = 0; i < board.size; i++) {
+        for (let i = 0; i < board.size; i++) {
             this.sprites[i] = [];
-            for (var j = 0; j < board.size; j++) {
+            for (let j = 0; j < board.size; j++) {
                 this.createCell(i,j);
             }
         }
     }
 
     createCell(i,j){
-        let cell = new Cell(i, j,this);
+        let cell = new Cell(i, j, this);
 
         let sprite = this.add.sprite(j * this.cellSize + 100, i * this.cellSize + 100, 'cell');
         sprite.displayWidth = this.cellSize;
@@ -56,10 +55,12 @@ class GameScene extends Phaser.Scene {
         sprite.on('pointerdown', this.handleClick, cell);
     }
 
-    handleClick(event) {
+    handleClick() {
         let scene = this.scene;
 
-        if (!scene.board.isValidMove(this.x,this.y)) return;
+        console.log(scene.board);
+
+        if (!scene.board.isValidMove(this.x, this.y)) return;
 
         if (scene.board.winner == 0) {
             scene.human.move(this.x, this.y);
@@ -72,21 +73,18 @@ class GameScene extends Phaser.Scene {
     updateBoard(board) {
         //Если поле увеличилось на 3 клетки
         if (this.boardSize != board.size) {
-            this.handleBoardResize()
+            this.handleBoardResize();
             this.checkForGameOver();
         }
 
-        for (var i = 0; i < board.size; i++) {
-            if (this.sprites[i] == undefined) sprites[i] = [];
-            let sprite = undefined;
-            for (var j = 0; j < board.size; j++) {
+        for (let i = 0; i < board.size; i++) {
+            for (let j = 0; j < board.size; j++) {
 
                 if (board.human[i][j] == board.humanValue) {
-                    sprite = 'xCell';
+                    console.log("x");
                     this.sprites[i][j].setTexture('xCell');
                 }
                 else if (board.ai[i][j] == board.aiValue) {
-                    sprite = 'oCell';
                     this.sprites[i][j].setTexture('oCell');
                 }
             }
@@ -97,10 +95,10 @@ class GameScene extends Phaser.Scene {
 
     handleBoardResize(){
         let board = this.board;
-        for (var i = 0; i < board.size; i++) {
+        for (let i = 0; i < board.size; i++) {
             if (!this.sprites[i])
                 this.sprites[i] = [];
-            for (var j = 0; j < board.size; j++) {
+            for (let j = 0; j < board.size; j++) {
                 if (i >= this.boardSize && i < board.size || j >= this.boardSize && j < board.size) {
                     this.createCell(i,j);
                 }
@@ -125,7 +123,7 @@ class GameScene extends Phaser.Scene {
         let x = this.game.config.width/2;
         let y = this.game.config.height/4;
 
-        var label = this.add.text(x, y, winner+" WINS!", { fontSize: '72px Arial', fill: '#FFF' });
+        let label = this.add.text(x, y, winner+" WINS!", { fontSize: '72px Arial', fill: '#FFF' });
         label.setOrigin(0.5, 0.5);
 
         this.tweens.add({
@@ -135,7 +133,7 @@ class GameScene extends Phaser.Scene {
             duration: 3000,
         });
 
-        for (var i = 0; i < 5; i++) {
+        for (let i = 0; i < 5; i++) {
             this.spark.createEmitter({
                 x: this.board.winnerCells[i].y*this.cellSize+100,
                 y: this.board.winnerCells[i].x*this.cellSize+100,

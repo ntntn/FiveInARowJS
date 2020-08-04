@@ -1,5 +1,4 @@
 import Player from './Player';
-import Cell from './Cell';
 
 class AI extends Player {
     cosntructor() {
@@ -12,7 +11,7 @@ class AI extends Player {
         /*         let max = -Number.MAX_VALUE;
                 let depth = 6;
         
-                for (var i = 0; i < moves.length; i++) {
+                for (let i = 0; i < moves.length; i++) {
                     let value = this.minimax(this.board, moves[i], depth, -Number.MAX_VALUE, Number.MAX_VALUE, false);
                     if (value > max) {
                         max = value;
@@ -29,18 +28,18 @@ class AI extends Player {
         let human = board.human;
         let ai = board.ai;
 
-        for (var i = 0; i < board.size; i++) {
-            for (var j = 0; j < board.size; j++) {
+        for (let i = 0; i < board.size; i++) {
+            for (let j = 0; j < board.size; j++) {
                 if (human[i][j] >= 0) {
                     moves.push({ x: i, y: j, value: human[i][j] + ai[i][j] });
                 }
             }
         }
 
-        for (var i = 0; i < moves.length; i++) {
-            for (var j = i + 1; j < moves.length; j++) {
+        for (let i = 0; i < moves.length; i++) {
+            for (let j = i + 1; j < moves.length; j++) {
                 if (moves[i].value < moves[j].value) {
-                    var temp = moves[i];
+                    let temp = moves[i];
                     moves[i] = moves[j];
                     moves[j] = temp;
                 }
@@ -64,7 +63,7 @@ class AI extends Player {
         let moves = this.getMoves(board);
         if (isMax) {
             let bestValue = -Number.MAX_VALUE;
-            for (var i = 0; i < moves.length; i++) {
+            for (let i = 0; i < moves.length; i++) {
                 bestValue = Math.max(bestValue, this.minimax(copy, moves[i], depth - 1, alpha, beta, false));
                 alpha = Math.max(alpha, bestValue);
                 if (beta <= alpha)
@@ -73,7 +72,7 @@ class AI extends Player {
             return bestValue;
         } else {
             let bestValue = Number.MAX_VALUE;
-            for (var i = 0; i < moves.length; i++) {
+            for (let i = 0; i < moves.length; i++) {
                 bestValue = Math.min(bestValue, this.minimax(copy, moves[i], depth - 1, alpha, beta, true));
                 beta = Math.min(beta, bestValue);
 

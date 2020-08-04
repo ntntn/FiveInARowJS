@@ -1,14 +1,14 @@
 class Board {
-    constructor(boardSize) {
-        this.size = boardSize ? boardSize : 5;
+    constructor(boardSize = 5) {
+        this.size = boardSize;
         this.human = [];
         this.ai = [];
         this.placed = 0;
 
-        for (var i = 0; i < this.size; i++) {
+        for (let i = 0; i < this.size; i++) {
             this.human[i] = [];
             this.ai[i] = [];
-            for (var j = 0; j < this.size; j++) {
+            for (let j = 0; j < this.size; j++) {
                 this.human[i][j] = 0;
                 this.ai[i][j] = 0;
             }
@@ -21,11 +21,10 @@ class Board {
         this.winnerCells = [];
     }
 
-
     clone() {
         let copy = new Board(this.size);
-        for (var i = 0; i < this.size; i++) {
-            for (var j = 0; j < this.size; j++) {
+        for (let i = 0; i < this.size; i++) {
+            for (let j = 0; j < this.size; j++) {
                 copy.human[i][j] = this.human[i][j];
                 copy.ai[i][j] = this.ai[i][j];
             }
@@ -39,14 +38,14 @@ class Board {
     }
 
     getValue() {
-		let value = 0;
-		for (var i = 0; i < this.size; i++)
-			for (var j = 0; j < this.size; j++)
-				if (this.human[i][j] >= 0)
-					value += this.ai[i][j] - this.human[i][j];
-		return value;
+        let value = 0;
+        for (let i = 0; i < this.size; i++)
+            for (let j = 0; j < this.size; j++)
+                if (this.human[i][j] >= 0)
+                    value += this.ai[i][j]-this.human[i][j];
+        return value;
     }
-    
+
     isValid(x, y) {
         return x >= 0 && y >= 0 && x < this.size && y < this.size;
     }
@@ -66,13 +65,13 @@ class Board {
     }
 
     resizeBoard() {
-        for (var i = 0; i < this.size + 3; i++) {
-            if (!this.human[i]){
+        for (let i = 0; i < this.size + 3; i++) {
+            if (!this.human[i]) {
                 this.human[i] = [];
                 this.ai[i] = [];
             }
-            for (var j = 0; j < this.size + 3; j++) {
-                if (i >= this.size && i < this.size+3 || j >= this.size && j < this.size+3) {
+            for (let j = 0; j < this.size + 3; j++) {
+                if (i >= this.size && i < this.size + 3 || j >= this.size && j < this.size + 3) {
                     this.human[i][j] = 0;
                     this.ai[i][j] = 0;
                 }
