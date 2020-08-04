@@ -38,12 +38,11 @@ class AI extends Player {
         }
 
         for (var i = 0; i < moves.length; i++) {
-            let move = array[i];
-            for (var j = i + 1; j < array.length; j++) {
-                if (moves[i].value < array[j].value) {
-                    var temp = array[i];
-                    array[i] = array[j];
-                    array[j] = temp;
+            for (var j = i + 1; j < moves.length; j++) {
+                if (moves[i].value < moves[j].value) {
+                    var temp = moves[i];
+                    moves[i] = moves[j];
+                    moves[j] = temp;
                 }
             }
         }
