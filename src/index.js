@@ -74,7 +74,6 @@ class GameScene extends Phaser.Scene {
         //Если поле увеличилось на 3 клетки
         if (this.boardSize != board.size) {
             this.handleBoardResize();
-            this.checkForGameOver();
         }
 
         for (let i = 0; i < board.size; i++) {
