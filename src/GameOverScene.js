@@ -9,8 +9,6 @@ class GameOverScene extends Phaser.Scene {
 
     preload() {
         this.load.image('playAgainButton', 'assets/playAgainButton.png');
-        this.load.image('winText', 'assets/winText.png');
-        this.load.image('looseText', 'assets/looseText.png');
     }
 
     create() {
