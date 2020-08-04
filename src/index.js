@@ -74,7 +74,6 @@ class GameScene extends Phaser.Scene {
         if (this.boardSize != board.size) {
             this.handleBoardResize()
             this.checkForGameOver();
-            return;
         }
 
         for (var i = 0; i < board.size; i++) {
