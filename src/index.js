@@ -63,10 +63,8 @@ class GameScene extends Phaser.Scene {
 
         if (scene.board.winner == 0) {
             scene.human.move(this.x, this.y);
-            console.log(scene.board);
             scene.updateBoard(scene.board);
             scene.ai.move();
-            console.log(scene.board);
             scene.updateBoard(scene.board);
         }
     }
