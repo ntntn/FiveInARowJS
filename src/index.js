@@ -113,13 +113,10 @@ class GameScene extends Phaser.Scene {
         let board = this.board;
 
         if (board.winner == board.humanValue) {
-            console.log("human wins");
             this.handleGameOver('HUMAN');
-            return;
         }
         else if (board.winner == board.aiValue) {
             this.handleGameOver('AI');
-            return;
         }
     }
 
