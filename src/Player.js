@@ -10,7 +10,6 @@ class Player {
     }
 
     move(board, player, x, y) {
-        console.log(x,y);
 		let arr = board.getIntBoard(player == board.humanVal);
 		board.move(player, x, y);
 

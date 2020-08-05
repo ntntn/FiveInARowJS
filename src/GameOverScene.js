@@ -16,12 +16,15 @@ class GameOverScene extends Phaser.Scene {
         let y = this.game.config.height/2.5;
         let button = this.add.sprite(x, y, 'playAgainButton');
 
-/*         let label;
-        if (this.winner = 'AI'){
+        x-=button.displayWidth/3;
 
-        } */
-        let label = this.winner == 'AI'? 'ВЫ ПРОИГРАЛИ':'ПОБЕДА';
-        this.add.text(x-button.displayWidth/3,y*0.6,label, { fontSize: "60px", fontFamily: 'Arial' });
+        let label;
+        if (this.winner = 'AI'){
+            label = 'ВЫ ПРОИГРАЛИ';
+            x-=125;
+        } else label = 'ПОБЕДА';
+
+        this.add.text(x,y*0.6,label, { fontSize: "60px", fontFamily: 'Arial' });
         button.setInteractive().on('pointerdown', () => this.scene.start('GameScene'), this);
     }
 }

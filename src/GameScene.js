@@ -56,8 +56,6 @@ class GameScene extends Phaser.Scene {
     handleClick() {
         let scene = this.scene;
 
-        console.log(scene.board);
-
         if (!scene.board.isValidMove(this.x, this.y)) return;
 
         if (scene.board.winner == 0) {
@@ -78,7 +76,6 @@ class GameScene extends Phaser.Scene {
             for (let j = 0; j < board.size; j++) {
 
                 if (board.human[i][j] == board.humanValue) {
-                    console.log("x");
                     this.sprites[i][j].setTexture('xCell');
                 }
                 else if (board.ai[i][j] == board.aiValue) {
