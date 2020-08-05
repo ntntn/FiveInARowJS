@@ -55,6 +55,7 @@ class Board {
     }
 
     move(player, x, y) {
+        console.log(x,y);
         this.human[x][y] = player;
         this.ai[x][y] = player;
         this.placed++;

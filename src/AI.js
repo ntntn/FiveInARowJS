@@ -7,6 +7,13 @@ class AI extends Player {
 
     move() {
         let bestMove = this.getMoves(this.board)[0];
+        console.log(bestMove);
+        console.log(bestMove);
+        console.log(bestMove);
+        console.log(bestMove);
+        console.log(bestMove);
+        console.log(bestMove);
+        console.log("MOVING");
 
         /*         let max = -Number.MAX_VALUE;
                 let depth = 6;
@@ -45,6 +52,7 @@ class AI extends Player {
                 }
             }
         }
+        console.log(moves);
         return moves;
     }
 
