@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
-import GameOverScene from './GameOverScene';
 import GameScene from './GameScene';
+import GameOverScene from './GameOverScene';
 
 
 const config = {
