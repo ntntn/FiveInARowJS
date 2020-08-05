@@ -114,7 +114,7 @@ class GameScene extends Phaser.Scene {
 
     handleGameOver(winner) {
 
-        let x = this.game.config.width/2;
+        let x = this.game.config.width/1.5;
         let y = this.game.config.height/4;
 
         let label = this.add.text(x, y, winner+" WINS!", { fontSize: '72px Arial', fill: '#FFF' });

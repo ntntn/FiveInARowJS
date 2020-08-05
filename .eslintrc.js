@@ -13,7 +13,5 @@ module.exports = {
   rules: {
     indent: 'off',
     allowForLoopAfterthoughts: true,
-    'indent': 'off',
-    'allowForLoopAfterthoughts': true,
   },
 };
